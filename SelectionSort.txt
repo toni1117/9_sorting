@@ -1,0 +1,25 @@
+// 5 2 9 3 7 4 1 3
+        int[] array = Console.ReadLine()
+            .Split(" ")  
+            .Select(e=> int.Parse(e))
+            .ToArray();
+
+        for (int i = 0; i < array.Length - 1; i++)
+        {
+            int k = i;
+            for (int j = 0; j < array.Length - 1; j++)
+            {
+                if (array[j] > array[k])
+                {
+                    k = j;
+                }
+
+                if (k != i)
+                {
+                  int temp = array[i];
+                    array[i] = array[k];
+                    array[k] = temp;  
+                }
+            }
+        }
+        Console.WriteLine(string.Join(" ", array));
